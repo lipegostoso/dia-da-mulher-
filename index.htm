@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8 de Março | Dia Internacional da Mulher</title>
+  <style>
+    :root {
+      --roxo: #6A0DAD;
+      --roxo-claro: #9B59B6;
+      --rosa-claro: #FFB6C1;
+      --rosa-escuro: #FF8FAB;
+      --branco: #ffffff;
+      --cinza-claro: #f8f1f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #f8e1f0 0%, #f0d9ff 100%);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header com efeito glassmorphism */
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(106, 13, 173, 0.15);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--roxo);
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: var(--roxo);
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--rosa-escuro);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(106, 13, 173, 0.75), rgba(255, 182, 193, 0.65)), 
+                  url('https://images.unsplash.com/photo-1612810807284-2c9b6f0f5a0d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: linear-gradient(45deg, var(--rosa-escuro), var(--roxo-claro));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(255, 143, 171, 0.4);
+      transition: all 0.4s;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(255, 143, 171, 0.5);
+    }
+
+    /* Seções */
+    section {
+      padding: 100px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--roxo);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--rosa-claro), var(--roxo-claro));
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* Sobre */
+    .sobre {
+      background: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(106, 13, 173, 0.1);
+      transition: transform 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-15px);
+    }
+
+    .card h3 {
+      color: var(--roxo);
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    /* Mulheres Inspiradoras */
+    .mulheres {
+      background: linear-gradient(135deg, #f0d9ff 0%, #fff0f5 100%);
+    }
+
+    .cards-mulheres {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .mulher-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+    }
+
+    .mulher-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(155, 89, 182, 0.3);
+    }
+
+    .mulher-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .mulher-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .mulher-info h3 {
+      color: var(--roxo);
+    }
+
+    /* Frases */
+    .frases {
+      background: var(--roxo);
+      color: white;
+      text-align: center;
+    }
+
+    .frase {
+      font-size: 1.8rem;
+      font-style: italic;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.4;
+    }
+
+    .autor {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--roxo);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    /* Animações */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3.2rem;
+      }
+      .nav-links a {
+        margin-left: 1rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#" class="logo">🌸 8 de Março</a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#mulheres">Mulheres Inspiradoras</a>
+        <a href="#frases">Mensagens</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Dia Internacional da Mulher</h1>
+      <p>8 de Março • 2026</p>
+      <p style="font-size: 1.3rem; margin: 1.5rem 0;">
+        Celebrando a força, a coragem e a beleza de todas as mulheres que transformam o mundo todos os dias.
+      </p>
+      <a href="#sobre" class="btn">Celebre conosco</a>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <h2>O que é o Dia da Mulher?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🌟 Origem</h3>
+          <p>O Dia Internacional da Mulher surgiu no início do século XX, fruto das lutas das mulheres por direitos trabalhistas, igualdade e voto. Em 8 de março de 1975, a ONU oficializou a data.</p>
+        </div>
+        <div class="card">
+          <h3>💪 Propósito</h3>
+          <p>É um dia para celebrar as conquistas das mulheres na sociedade, na política, na economia e na ciência, além de reforçar a luta pela igualdade de gênero.</p>
+        </div>
+        <div class="card">
+          <h3>🌸 Hoje</h3>
+          <p>Em 2026 continuamos celebrando a resiliência, criatividade e força feminina em todos os cantos do mundo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mulheres Inspiradoras -->
+  <section id="mulheres" class="mulheres">
+    <div class="container">
+      <h2>Mulheres que Inspiram</h2>
+      <div class="cards-mulheres">
+
+        <div class="mulher-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-09be1ec59862?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Marie Curie">
+          <div class="mulher-info">
+            <h3>Marie Curie</h3>
+            <p>Primeira mulher a ganhar o Prêmio Nobel e a única a ganhar em duas áreas diferentes da ciência.</p>
+          </div>
+        </div>
+
+        <div class="mulher-card">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Malala">
+          <div class="mulher-info">
+            <h3>Malala Yousafzai</h3>
+            <p>Ativista paquistanesa e a pessoa mais jovem a receber o Prêmio Nobel da Paz.</p>
+          </div>
+        </div>
+
+        <div class="mulher-card">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Simone de Beauvoir">
+          <div class="mulher-info">
+            <h3>Simone de Beauvoir</h3>
+            <p>Filósofa e escritora francesa, ícone do feminismo moderno.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Frases -->
+  <section id="frases" class="frases">
+    <div class="container">
+      <h2 style="color: white;">Frases que Inspiram</h2>
+      
+      <div class="frase">
+        "Não nascemos mulheres, tornamo-nos mulheres."
+      </div>
+      <div class="autor">— Simone de Beauvoir</div>
+
+      <br><br>
+
+      <div class="frase">
+        "A luta das mulheres é a luta de toda a humanidade."
+      </div>
+      <div class="autor">— Angela Davis</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="font-size: 2rem; margin-bottom: 1rem;">🌸 Feliz Dia da Mulher! 🌸</p>
+      <p>Seja forte. Seja você. Seja livre.</p>
+      <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2026 - Celebrando todas as mulheres do mundo</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+/* ====================== DIA DA MULHER - CSS MODERNO ====================== */
+
+:root {
+    --roxo: #6A0DAD;
+    --roxo-claro: #9B59B6;
+    --rosa-claro: #FFB6C1;
+    --rosa-escuro: #FF8FAB;
+    --rosa-forte: #FF69B4;
+    --branco: #ffffff;
+    --cinza-claro: #f8f1f9;
+    --sombra: 0 10px 40px rgba(106, 13, 173, 0.15);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #fdf0f8 0%, #f3e0ff 100%);
+    color: #333;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  
+  /* Header com efeito glassmorphism */
+  header {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 25px rgba(106, 13, 173, 0.12);
+  }
+  
+  nav {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--roxo);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .nav-links a {
+    margin-left: 2.2rem;
+    text-decoration: none;
+    color: var(--roxo);
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--rosa-escuro);
+    transform: translateY(-3px);
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    min-height: 650px;
+    background: linear-gradient(rgba(106, 13, 173, 0.78), rgba(255, 105, 180, 0.65)),
+                url('https://images.unsplash.com/photo-1612810807284-2c9b6f0f5a0d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.3) 100%);
+  }
+  
+  .hero-content {
+    max-width: 850px;
+    padding: 0 20px;
+    z-index: 2;
+    animation: fadeInUp 1.2s ease forwards;
+  }
+  
+  .hero h1 {
+    font-size: 4.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+  }
+  
+  .hero p {
+    font-size: 1.55rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    font-weight: 300;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(45deg, var(--rosa-escuro), var(--roxo-claro));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 12px 35px rgba(255, 105, 180, 0.45);
+    transition: all 0.4s ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(-6px) scale(1.06);
+    box-shadow: 0 18px 45px rgba(255, 105, 180, 0.55);
+  }
+  
+  /* Seções Gerais */
+  section {
+    padding: 110px 0;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 25px;
+  }
+  
+  h2 {
+    font-size: 3.2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--roxo);
+    font-weight: 700;
+    position: relative;
+  }
+  
+  h2::after {
+    content: '';
+    width: 90px;
+    height: 5px;
+    background: linear-gradient(to right, var(--rosa-claro), var(--roxo-claro));
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+  }
+  
+  /* Cards Gerais */
+  .card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.8rem;
+    box-shadow: var(--sombra);
+    transition: all 0.4s ease;
+    height: 100%;
+  }
+  
+  .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(155, 89, 182, 0.25);
+  }
+  
+  .card h3 {
+    color: var(--roxo);
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 35px;
+  }
+  
+  /* Mulheres Inspiradoras */
+  .mulheres {
+    background: linear-gradient(135deg, #f8e4ff 0%, #fff0f8 100%);
+  }
+  
+  .cards-mulheres {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 30px;
+  }
+  
+  .mulher-card {
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(106, 13, 173, 0.12);
+    transition: all 0.4s ease;
+  }
+  
+  .mulher-card:hover {
+    transform: scale(1.06) translateY(-10px);
+    box-shadow: 0 25px 60px rgba(155, 89, 182, 0.35);
+  }
+  
+  .mulher-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .mulher-card:hover img {
+    transform: scale(1.08);
+  }
+  
+  .mulher-info {
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+  }
+  
+  .mulher-info h3 {
+    color: var(--roxo);
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Seção de Frases */
+  .frases {
+    background: linear-gradient(135deg, var(--roxo), #8B3CB5);
+    color: white;
+    text-align: center;
+  }
+  
+  .frase {
+    font-size: 2rem;
+    font-style: italic;
+    max-width: 820px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.45;
+    font-weight: 300;
+  }
+  
+  .autor {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    font-style: normal;
+  }
+  
+  /* Footer */
+  footer {
+    background: var(--roxo);
+    color: white;
+    text-align: center;
+    padding: 4rem 0 2.5rem;
+  }
+  
+  footer p {
+    margin: 12px 0;
+    font-size: 1.1rem;
+  }
+  
+  footer .highlight {
+    font-size: 2.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  
+  /* Animações */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 3.4rem;
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+    }
+    
+    .nav-links a {
+      margin-left: 1rem;
+      font-size: 1rem;
+    }
+    
+    h2 {
+      font-size: 2.6rem;
+    }
+    
+    section {
+      padding: 80px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 2.8rem;
+    }
+    
+    .btn {
+      padding: 14px 30px;
+      font-size: 1.05rem;
+    }
+  }
